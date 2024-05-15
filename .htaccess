@@ -1,0 +1,77 @@
+# BEGIN HMWP_RULES
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^([0-9a-zA-Z_-]+/)?newlogin$ /medit/wp-login.php [QSA,L]
+RewriteRule ^([0-9a-zA-Z_-]+/)?newlogin/(.*) /medit/wp-login.php$2 [QSA,L]
+RewriteRule ^([0-9a-zA-Z_-]+/)?lostpass$ /medit/wp-login.php?action=lostpassword [QSA,L]
+RewriteRule ^([0-9a-zA-Z_-]+/)?register$ /medit/wp-login.php?action=register [QSA,L]
+RewriteRule ^([0-9a-zA-Z_-]+/)?core/modules/121457d304/(.*) /medit/wp-content/plugins/query-monitor/$2 [QSA,L]
+RewriteRule ^([0-9a-zA-Z_-]+/)?core/modules/8963d19897/(.*) /medit/wp-content/plugins/advanced-custom-fields/$2 [QSA,L]
+RewriteRule ^([0-9a-zA-Z_-]+/)?core/modules/e39123425b/(.*) /medit/wp-content/plugins/all-in-one-wp-migration/$2 [QSA,L]
+RewriteRule ^([0-9a-zA-Z_-]+/)?core/modules/92a272f7cf/(.*) /medit/wp-content/plugins/astra_worker/$2 [QSA,L]
+RewriteRule ^([0-9a-zA-Z_-]+/)?core/modules/8516d2654f/(.*) /medit/wp-content/plugins/contact-form-7/$2 [QSA,L]
+RewriteRule ^([0-9a-zA-Z_-]+/)?core/modules/f65f29574d/(.*) /medit/wp-content/plugins/elementor/$2 [QSA,L]
+RewriteRule ^([0-9a-zA-Z_-]+/)?core/modules/d0f4711431/(.*) /medit/wp-content/plugins/hide-my-wp/$2 [QSA,L]
+RewriteRule ^([0-9a-zA-Z_-]+/)?core/modules/36f912ebf5/(.*) /medit/wp-content/plugins/memcached-is-your-friend/$2 [QSA,L]
+RewriteRule ^([0-9a-zA-Z_-]+/)?core/modules/e8b12f0df8/(.*) /medit/wp-content/plugins/ocean-elementor-widgets/$2 [QSA,L]
+RewriteRule ^([0-9a-zA-Z_-]+/)?core/modules/a36fd26bce/(.*) /medit/wp-content/plugins/ocean-extra/$2 [QSA,L]
+RewriteRule ^([0-9a-zA-Z_-]+/)?core/modules/a6518c5513/(.*) /medit/wp-content/plugins/ocean-social-sharing/$2 [QSA,L]
+RewriteRule ^([0-9a-zA-Z_-]+/)?core/modules/067a15d05a/(.*) /medit/wp-content/plugins/wpforms-lite/$2 [QSA,L]
+RewriteRule ^([0-9a-zA-Z_-]+/)?core/modules/(.*) /medit/wp-content/plugins/$2 [QSA,L]
+RewriteRule ^([0-9a-zA-Z_-]+/)?core/views/bb67c73c1a/design.css$ /medit/wp-content/themes/oceanwp-child-theme-master/style.css [QSA,L]
+RewriteRule ^([0-9a-zA-Z_-]+/)?core/views/bb67c73c1a/(.*) /medit/wp-content/themes/oceanwp-child-theme-master/$2 [QSA,L]
+RewriteRule ^([0-9a-zA-Z_-]+/)?core/views/158994cc0c/design.css$ /medit/wp-content/themes/oceanwp/style.css [QSA,L]
+RewriteRule ^([0-9a-zA-Z_-]+/)?core/views/158994cc0c/(.*) /medit/wp-content/themes/oceanwp/$2 [QSA,L]
+RewriteRule ^([0-9a-zA-Z_-]+/)?core/views/(.*) /medit/wp-content/themes/$2 [QSA,L]
+RewriteRule ^([0-9a-zA-Z_-]+/)?storage/(.*) /medit/wp-content/uploads/$2 [QSA,L]
+RewriteRule ^([0-9a-zA-Z_-]+/)?core/(.*) /medit/wp-content/$2 [QSA,L]
+RewriteRule ^([0-9a-zA-Z_-]+/)?lib/(.*) /medit/wp-includes/$2 [QSA,L]
+RewriteRule ^([0-9a-zA-Z_-]+/)?comments/(.*) /medit/wp-comments-post.php$2 [QSA,L]
+RewriteRule ^([0-9a-zA-Z_-]+/)?writer/(.*) /medit/author/$2 [QSA,L]
+</IfModule>
+
+
+# END HMWP_RULES
+# BEGIN HMWP_VULNERABILITY
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{REMOTE_ADDR} ^35.214.130.87$ [NC,OR]
+RewriteCond %{REMOTE_ADDR} ^192.185.4.40$ [NC,OR]
+RewriteCond %{REMOTE_ADDR} ^15.235.50.223$ [NC,OR]
+RewriteCond %{REMOTE_ADDR} ^172.105.48.130$ [NC,OR]
+RewriteCond %{REMOTE_ADDR} ^167.99.233.123$ [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} (wpthemedetector|builtwith|isitwp|wapalyzer|mShots|WhatCMS|gochyu|wpdetector|scanwp) [NC]
+RewriteRule ^(.*)$ - [L,R=404]
+</IfModule>
+
+<IfModule mod_headers.c>
+Header always unset x-powered-by
+Header always unset server
+ServerSignature Off
+</IfModule>
+
+<IfModule mod_headers.c>
+Header set Strict-Transport-Security "max-age=15768000;includeSubdomains"
+Header set Content-Security-Policy "object-src 'none'"
+Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+
+
+# END HMWP_VULNERABILITY
+
+# BEGIN WordPress
+# The directives (lines) between "BEGIN WordPress" and "END WordPress" are
+# dynamically generated, and should only be modified via WordPress filters.
+# Any changes to the directives between these markers will be overwritten.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /medit/
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /medit/index.php [L]
+</IfModule>
+
+# END WordPress
