@@ -27,51 +27,28 @@ function oceanwp_child_enqueue_scripts() {
     wp_enqueue_script('jquery');
     
     // Enqueue the custom script
-    wp_enqueue_script('custom-script', get_stylesheet_directory_uri() . '/script.js', array('jquery'), '1.0', true );
-
-    // Localize the script with new data
-    wp_localize_script('custom-script', 'ajax_object', array('ajax_url' => admin_url('admin-ajax.php')));
+    wp_enqueue_script('custom-script', get_stylesheet_directory_uri() . '/script.js', array('jquery'), '1.0', true);
+    
+  
 }
 add_action('wp_enqueue_scripts', 'oceanwp_child_enqueue_scripts');
 
+
+
 /**
-
- * Fonction pour définir les cookies avec les attributs SameSite=None et Secure et des valeurs spécifiques
+ * Fonction pour afficher le lien "Nous contacter" dans le menu
  */
-function set_secure_cookie($name, $value = '', $expiration = 0, $samesite = 'None') {
-    // Définit les options du cookie
-    $cookie_options = array(
-        'expires' => $expiration,
-        'path' => '/',
-        'domain' => 'localhost', // Domaine pour le développement en local
-        'secure' => false, // Assure-toi de mettre à true si tu utilises HTTPS en local
-        'httponly' => true, // Empêche l'accès au cookie via JavaScript
-        'samesite' => $samesite, // Définit l'attribut SameSite
-    );
-
-    // Vérifie si le protocole est HTTPS et définis Secure sur true si c'est le cas
-    if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
-        $cookie_options['secure'] = true;
-    }
-
-    // Définit le cookie avec les options spécifiées
-    setcookie($name, $value, $cookie_options);
+function afficher_bouton($items, $args) {
+    // Ajoute le lien vers la page de contact
+    $items .= '<a href="' . home_url('/contact') . '" class="contact-btn">Nous contacter</a>';
+    return $items;
 }
 
-// Exemple d'utilisation de la fonction pour définir les cookies avec des valeurs spécifiques
-set_secure_cookie('__Secure-3PSID', 'valeur_cookie_1', 0, 'Strict');
-set_secure_cookie('__Secure-3PAPISID', 'valeur_cookie_2', 0, 'Strict');
-set_secure_cookie('__Secure-3PSIDTS', 'valeur_cookie_3', 0, 'Strict');
-set_secure_cookie('NID', 'valeur_cookie_4', 0, 'Strict'); // Modification de SameSite à Strict
-set_secure_cookie('__Secure-3PSIDCC', 'valeur_cookie_5', 0, 'Strict');
+// Ajouter le hook pour afficher le lien dans le menu de navigation
+add_filter('wp_nav_menu_items', 'afficher_bouton', 10, 2);
 
-
-
-
-
-
-add_filter('wp_nav_menu_items', 'contact_btn', 10, 2);
 ?>
+
 
 
 
