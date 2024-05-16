@@ -2,7 +2,7 @@
 
 ## Description
 
-MediT est un projet de site web pour une société fictive spécialisée dans la transformation digitale dans le secteur médical. Ce site web vise à présenter les services offerts par l'entreprise ainsi que ses réalisations.
+MediT est un projet de site web de debug pour une société fictive spécialisée dans la transformation digitale dans le secteur médical. Ce site web vise à présenter les services offerts par l'entreprise ainsi que ses réalisations.
 
 ## Fonctionnalités
 
