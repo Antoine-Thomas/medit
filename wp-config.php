@@ -1,66 +1,66 @@
 <?php
+
 /**
- * The base configurations of the WordPress.
+ * Les configurations de base de WordPress.
  *
- * This file has the following configurations: MySQL settings, Table Prefix,
- * Secret Keys, WordPress Language, and ABSPATH. You can find more information
- * by visiting {@link http://codex.wordpress.org/Editing_wp-config.php Editing
- * wp-config.php} Codex page. You can get the MySQL settings from your web host.
+ * Ce fichier contient les configurations suivantes : réglages MySQL, préfixe de table,
+ * clés secrètes, langue de WordPress, et ABSPATH. Vous pouvez trouver plus d'informations
+ * en visitant {@link http://codex.wordpress.org/Editing_wp-config.php Editing
+ * wp-config.php} Codex. Vous pouvez obtenir les réglages MySQL de votre hébergeur web.
  *
- * This file is used by the wp-config.php creation script during the
- * installation. You don't have to use the web site, you can just copy this file
- * to "wp-config.php" and fill in the values.
+ * Ce fichier est utilisé par le script de création de wp-config.php pendant l'installation.
+ * Vous n'avez pas besoin d'utiliser le site web, vous pouvez juste copier ce fichier
+ * dans "wp-config.php" et remplir les valeurs.
  *
  * @package WordPress
  */
 
-/** MySQL settings - You can get this info from your web host **/
-/** The name of the database for WordPress */
+/** Réglages MySQL - Vous pouvez obtenir ces informations de votre hébergeur web **/
+/** Le nom de la base de données pour WordPress */
 define('DB_NAME', 'med');
 
-/** MySQL database username */
+/** Nom d'utilisateur de la base de données MySQL */
 define('DB_USER', 'root');
 
-/** MySQL database password */
+/** Mot de passe de la base de données MySQL */
 define('DB_PASSWORD', '');
 
-/** MySQL hostname */
+/** Adresse de l'hôte MySQL */
 define('DB_HOST', 'localhost');
 
-/** Database Charset to use in creating database tables. */
+/** Jeu de caractères à utiliser pour la création des tables de la base de données. */
 define('DB_CHARSET', 'utf8');
 
-/** The Database Collate type. Don't change this if in doubt. */
+/** Type de collation de la base de données. Ne changez pas si vous n'êtes pas sûr. */
 define('DB_COLLATE', '');
 
-/** Define site and home URLs using relative paths */
-define('WP_HOME', '//' . $_SERVER['HTTP_HOST'] . '/medit');
-define('WP_SITEURL', '//' . $_SERVER['HTTP_HOST'] . '/medit');
 
-/** Disable WP-Cron and configure real cron job */
+
+/** Désactiver WP-Cron et configurer une tâche cron réelle */
 define('DISABLE_WP_CRON', true);
 
-/** Disable WordPress file editor */
+/** Désactiver l'éditeur de fichiers de WordPress */
 define('DISALLOW_FILE_EDIT', true);
 
-/** Secure cookies settings */
+/** Paramètres de cookies sécurisés */
 define('COOKIEHASH', md5('DOCUMENT_ROOT' . 'secure cookies' . 'DOCUMENT_ROOT'));
 
-/** Increase PHP memory limit */
+/** Augmenter la limite de mémoire PHP */
 define('WP_MEMORY_LIMIT', '256M');
 
-/** Disable OP cache feature */
+/** Désactiver la fonctionnalité OP cache */
 define('HIDE_CACHE_CLEAR', false);
 
-/** Disable SSO feature */
+/** Désactiver la fonctionnalité SSO */
 define('HIDE_SSO_LINK', false);
 
 /**#@+
- * Authentication Unique Keys and Salts.
+ * Clés uniques d'authentification et sels.
  *
- * Change these to different unique phrases!
- * You can generate these using the {@link https://api.wordpress.org/secret-key/1.1/salt/ WordPress.org secret-key service}
- * You can change these at any point in time to invalidate all existing cookies. This will force all users to have to log in again.
+ * Changez-les en phrases uniques ! Vous pouvez générer ces phrases en utilisant
+ * {@link https://api.wordpress.org/secret-key/1.1/salt/ le service de clé secrète de WordPress}
+ * Vous pouvez les changer à tout moment pour invalider tous les cookies existants. Cela forcera
+ * tous les utilisateurs à se reconnecter.
  *
  * @since 2.6.0
  */
@@ -76,55 +76,46 @@ define('NONCE_SALT',       '`%KRwR~S~1ewcv^u4kakw}hukLV3PhU.`3OKNexK`^xlXecj)p|+
 /**#@-*/
 
 /**
- * WordPress Database Table prefix.
+ * Préfixe de table pour la base de données WordPress.
  *
- * You can have multiple installations in one database if you give each a unique
- * prefix. Only numbers, letters, and underscores please!
+ * Vous pouvez installer plusieurs WordPress dans une même base de données
+ * en leur donnant chacune un préfixe unique. Utilisez uniquement des chiffres, lettres et underscores !
  */
 $table_prefix = 'wp_';
 
 /**
- * WordPress Localized Language, defaults to English.
+ * Langue locale de WordPress, par défaut en anglais.
  *
- * Change this to localize WordPress. A corresponding MO file for the chosen
- * language must be installed to wp-content/languages. For example, install
- * de_DE.mo to wp-content/languages and set WPLANG to 'de_DE' to enable German
- * language support.
+ * Changez cette valeur pour localiser WordPress. Un fichier MO correspondant pour
+ * la langue choisie doit être installé dans wp-content/languages. Par exemple, installez
+ * de_DE.mo dans wp-content/languages et définissez WPLANG à 'de_DE' pour activer
+ * le support de la langue allemande.
  */
 define('WPLANG', '');
 
 /**
- * For developers: WordPress debugging mode.
+ * Pour les développeurs : mode de débogage de WordPress.
  *
- * Change this to true to enable the display of notices during development.
- * It is strongly recommended that plugin and theme developers use WP_DEBUG
- * in their development environments.
+ * Changez cette valeur à true pour activer l'affichage des notifications pendant le développement.
+ * Il est fortement recommandé que les développeurs de plugins et de thèmes utilisent WP_DEBUG
+ * dans leurs environnements de développement.
  */
-define('WP_DEBUG', false);
-define('WP_DEBUG_DISPLAY', false);
-define('WP_DEBUG_LOG', false);
+define('WP_DEBUG', true);
+define('WP_DEBUG_DISPLAY', true);
+define('WP_DEBUG_LOG', true);
 
-$sapi_type = php_sapi_name();
-if ($sapi_type == 'cli') {
-    define('WP_DEBUG', false);
-    error_reporting(E_ALL);
-    @ini_set('display_errors', 1);
-}
-
-/** Set plugin and content paths */
+/** Définir les chemins des plugins et du contenu */
 define('WPMU_PLUGIN_DIR', '/mu-plugin');
 define('DOCKET_CACHE_CONTENT_PATH', '/tmp/docket_cache');
 
-/* That's all, stop editing! Happy blogging. */
+/* C'est tout, ne touchez pas à ce qui suit ! Bon blogging. */
 
-/** Absolute path to the WordPress directory. */
+/** Chemin absolu vers le répertoire de WordPress. */
 if (!defined('ABSPATH'))
     define('ABSPATH', dirname(__FILE__) . '/');
 
-/** Sets up WordPress vars and included files. */
+/** Configure les variables de WordPress et inclut les fichiers. */
 require_once(ABSPATH . 'wp-settings.php');
 
-/** Change permissions for plugin installation */
+/** Modifier les permissions pour l'installation de plugins */
 define("FS_METHOD", "direct");
-
-
