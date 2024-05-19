@@ -1,0 +1,15 @@
+{
+    "name": "searc/oceanwp-child-theme-master",
+    "autoload": {
+        "psr-4": {
+            "Searc\\OceanwpChildThemeMaster\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Antoine-Thomas",
+            "email": "searching.murphy@gmail.com"
+        }
+    ],
+    "require": {}
+}
