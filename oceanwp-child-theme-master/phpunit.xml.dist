@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<phpunit
+    bootstrap="C:\xampp\htdocs\medit\wp-content\themes\oceanwp-child-theme-master\tests\bootstrap.php"
+    backupGlobals="false"
+    colors="true"
+    convertErrorsToExceptions="true"
+    convertNoticesToExceptions="true"
+    convertWarningsToExceptions="true"
+>
+    <!-- Autres configurations PHPUnit -->
+</phpunit>
+
+
