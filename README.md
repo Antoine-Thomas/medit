@@ -17,7 +17,7 @@ MediT est un projet de site web de debug pour une société fictive spécialisé
    git clone https://github.com/Antoine-Thomas/medit.git
 2. Configurez un environnement de développement compatible avec WordPress sur votre machine.
 3. Importez la base de données fournie dans le dossier `database`.
-4. Installez les dépendances en exécutant `composer install`.
+4. Installez les dépendances en exécutant `Xampp`.
 5. Configurez les paramètres de connexion à la base de données dans le fichier `wp-config.php`.
 6. Accédez au site en visitant l'URL de votre serveur local dans votre navigateur.
 
@@ -25,6 +25,7 @@ MediT est un projet de site web de debug pour une société fictive spécialisé
 
 - Pour activer/désactiver les plugins, modifiez le fichier `wp-config.php` en conséquence.
 - Pour ajuster les paramètres de sécurité du plugin Hide My WP, consultez sa documentation officielle.
+- http://localhost/medit/newlogin c'est la sécurité  Hide my wp pour se log. 
 
 ## Contributeurs
 
