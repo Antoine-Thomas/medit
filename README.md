@@ -40,7 +40,7 @@ Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de 
 
 ## Test Unitaires et Fonctionnels
 
-Consultez le document de test unitaire et fonctionnel : [test unitaire et fonctionnel](https://github.com/Antoine-Thomas/medit/blob/main/test%20unitaire%20et%20fonctionnel.docx)
+Consultez le document de test unitaire et fonctionnel : [test unitaire et fonctionnel](https://github.com/Antoine-Thomas/medit/blob/main/Debugtestunitaireetfonctionnel.pdf)
 
 Pour les tests unitaires, le framework utilisé est PHPUnit pour PHP et Jest pour JavaScript.
 Pour les tests fonctionnels, Postman est utilisé pour effectuer des tests d'API.
