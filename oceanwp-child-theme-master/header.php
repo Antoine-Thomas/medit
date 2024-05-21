@@ -85,25 +85,3 @@
 				<!-- Ajout d'un bouton contact au menu -->
 
 
-
-				<?php
-
-				/**
-				 * Shortcode pour ajouter un bouton "Nous contacter"
-				 */
-				function contact_btn()
-				{
-					// Initialiser la variable $string
-					$string = '';
-
-					// Construire le lien avec l'adresse abrégée vers la page de contact
-					$string .= '<a href="' . home_url('/contact') . '" class="contact-btn">Nous contacter</a>';
-
-					// Retourner le code du bouton
-					return $string;
-				}
-
-				// On publie le shortcode
-				add_shortcode('contact', 'contact_btn');
-
-				?>

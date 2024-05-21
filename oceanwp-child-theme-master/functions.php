@@ -35,25 +35,6 @@ function oceanwp_child_enqueue_scripts()
 add_action('wp_enqueue_scripts', 'oceanwp_child_enqueue_scripts');
 
 
-function fetch_remote_content()
-{
-    $url = '';
-    if (empty($url)) {
-        return;
-    }
-    $response = wp_remote_get($url, array('sslverify' => true));
-    if (is_wp_error($response)) {
-        error_log('Error fetching remote content: ' . $response->get_error_message());
-        return;
-    }
-    $body = wp_remote_retrieve_body($response);
-    if (!empty($body)) {
-
-        update_option('remote_content', $body);
-    }
-}
-
-
 /**
  * Fonction pour afficher le lien "Nous contacter" dans le menu
  */
